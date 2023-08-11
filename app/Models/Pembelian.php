@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Pembelian extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'no_tax', 'fullname', 'npwp', 'telp',
+        'province', 'city', 'subdistrict', 'village',
+        'address', 'postal_code', 'goods_name', 'unit_price',
+        'amount', 'total', 'discount', 'dpp', 'ppn', 'desc',
+        'status', 'file1', 'file2', 'file3'
+    ];
+}

@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminDashboard;
+use App\Http\Controllers\{
+    AuthController,
+    DashboardController,
+    PembelianController,
+    PenjualanController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=> 'admin'], function(){
-    Route::get('/', [AdminDashboard::class, 'index']);
-    Route::get('/penjualan', function () {
-        return view('admin.penjualan',["title" => "Admin | Penjualan",]);
-    });
-    Route::get('/pembelian', function () {
-        return view('admin.pembelian',["title" => "Admin | Pembelian",]);
-    });
+Route::group(['prefix' => 'admin'], function(){
+    Route::resource('/pembelian', PembelianController::class);
+    Route::resource('/penjualan', PenjualanController::class);
 });

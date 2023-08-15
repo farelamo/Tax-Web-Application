@@ -4,7 +4,7 @@ namespace App\Services;
 
 class BaseService {
 
-    public function oops()  {
-        
+    public function oops($message)  {
+        return redirect()->back();
     }
 }

@@ -220,19 +220,5 @@
 @endsection
 
 @section('script')
-	<script>
-		$(".hitung").keyup(function(){ total(); });
-		$(".hitung").change(function(){ total(); });
-		function total(){
-			var up = $("#up").val();
-			var am = $("#am").val();
-			var ds = $("#ds").val();
-			var tot = (up*am)-(up*am*ds/100);
-			$("#total").val(tot);		
-			
-			var ppn = $("#ppn").val();
-			var dpp = tot+(tot*ppn/100);
-			$("#dpp").val(dpp);
-		}
-	</script>
+	@include('partials.admin-hitung')
 @endsection

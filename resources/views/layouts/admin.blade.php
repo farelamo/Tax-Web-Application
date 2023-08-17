@@ -30,7 +30,7 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
-            <div id="content" style="background: url(/assets/img/bg.png);background-repeat: no-repeat;background-size: 1300px;">
+            <div id="content" style="background: url(/assets/img/bg.png);background-repeat: no-repeat;background-size: 100%;">
                 <!-- Topbar -->
                 @include('partials.admin-navbar')
                 <!-- End of Topbar -->
@@ -75,7 +75,6 @@
     <!-- JavaScript-->
     @include('partials.admin-script')
     @yield('script')
-
 </body>
 
 </html>

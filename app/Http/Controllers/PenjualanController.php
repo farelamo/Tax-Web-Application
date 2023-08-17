@@ -12,6 +12,7 @@ class PenjualanController extends Controller
 {
     public function __construct(PenjualanService $service) {
         $this->service = $service;
+        $this->middleware('admin')->except('index');
     }
 
     public function index() {

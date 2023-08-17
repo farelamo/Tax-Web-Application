@@ -12,6 +12,7 @@ class PembelianController extends Controller
 {
     public function __construct(PembelianService $service) {
         $this->service = $service;
+        $this->middleware('admin')->except('index');
     }
 
     public function index() {

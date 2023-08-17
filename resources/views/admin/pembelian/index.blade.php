@@ -5,16 +5,16 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Pembelian</h1>
+            <h1 class="h3 mb-0 text-dark font-weight-bold">Pembelian</h1>
         </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex">
-                <h6 class="font-weight-bold text-primary m-0 py-1">Data Pembelian</h6>
+                <h6 class="font-weight-bold text-dark m-0 py-1">Data Pembelian</h6>
                 <a href="{{route('pembelian.create')}}" class="ml-auto">
-                    <button class="btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-plus fa-sm text-white-50"></i> Tambah
+                    <button class="btn btn-warning shadow-sm font-weight-bold py-2 px-5">
+                        Tambah Data Pembelian
                     </button>
                 </a>
             </div>
@@ -23,50 +23,29 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>no_tax</th>
-                                <th>fullname</th>
-                                <th>npwp</th>
-                                <th>telp</th>
-                                <th>province</th>
-                                <th>city</th>
-                                <th>subdistrict</th>
-                                <th>village</th>
-                                <th>address</th>
-                                <th>postal_code</th>
-                                <th>goods_name</th>
-                                <th>unit_price</th>
-                                <th>amount</th>
-                                <th>total</th>
-                                <th>discount</th>
-                                <th>dpp</th>
-                                <th>ppn</th>
-                                <th>desc</th>
-                                <th>status</th>
+                                <th>No</th>
+                                <th>Tanggal</th>
+                                <th>No Invoice</th>
+                                <th>Pelanggan</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Keterangan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($pembelian as $p)
+                            @php
+                                $date = date_create($p->document_date);
+                            @endphp
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{date_format($date,"d/m/Y")}}</td>
                                     <td>{{ $p->no_tax }}</td>
                                     <td>{{ $p->fullname }}</td>
-                                    <td>{{ $p->npwp }}</td>
-                                    <td>{{ $p->telp }}</td>
-                                    <td>{{ $p->province }}</td>
-                                    <td>{{ $p->city }}</td>
-                                    <td>{{ $p->subdistrict }}</td>
-                                    <td>{{ $p->village }}</td>
-                                    <td>{{ $p->address }}</td>
-                                    <td>{{ $p->postal_code }}</td>
-                                    <td>{{ $p->goods_name }}</td>
-                                    <td>{{ $p->unit_price }}</td>
-                                    <td>{{ $p->amount }}</td>
-                                    <td>{{ $p->total }}</td>
-                                    <td>{{ $p->discount }}</td>
-                                    <td>{{ $p->dpp }}</td>
-                                    <td>{{ $p->ppn }}</td>
-                                    <td>{{ $p->desc }}</td>
                                     <td>{{ $p->status }}</td>
+                                    <td>Rp. {{ number_format($p->total, 0, '.', '.') }}</td>
+                                    <td>{{ $p->desc }}</td>
                                     <td>
 										<a href="{{route('pembelian.edit', ['pembelian' => $p->id])}}">
                                         	<button class="btn btn-sm btn-success"><i class="fa fa-pen"></i></button>

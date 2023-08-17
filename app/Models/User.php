@@ -15,4 +15,14 @@ class User extends Authenticatable
     protected $fillable = ['name', 'email', 'role', 'password'];
     protected $hidden   = ['password'];
     protected $casts    = ['password' => 'hashed'];
+
+    public function biodata()
+    {
+        return $this->hasOne(Biodata::class);
+    }
+
+    public function activation()
+    {
+        return $this->hasOne(Activation::class);
+    }
 }

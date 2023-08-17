@@ -3,10 +3,25 @@
 
 <head>
   @include('partials.admin-head')
+  @yield('head')
 </head>
 
-<body class="bg-gradient-primary">
-
+<body
+  @if (Request::is('/') || Request::is('register'))
+    style="
+      background-color: #4e73df;
+      background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+      background-size: cover;
+    "
+  @else
+    style="
+      background: url(/assets/img/bg.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-color: white;
+    "
+  @endif
+>
   <script>
     @if(session()->has('success'))
       Swal.fire({title:'Berhasil', text:'{{session('success')}}', icon:'success'})
@@ -27,6 +42,7 @@
     </div>
 
     @include('partials.admin-script')
+    @yield('script')
 
 </body>
 

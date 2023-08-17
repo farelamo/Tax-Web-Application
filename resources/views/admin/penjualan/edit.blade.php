@@ -92,14 +92,14 @@
 						</div>
 						<div class="col-6">
 							<label>Jalan</label>
-							<textarea name="address" class="form-control form-control-solid mb-2" id="" rows="5">{{old('address')}}</textarea>
+							<textarea name="address" class="form-control form-control-solid mb-2" id="" rows="5">{{old('address') ?? $data->address}}</textarea>
 							@error('address')
 								<span>{{$message}}</span>
 							@enderror
 						</div>
 						<div class="col-6">
 							<label>Kode Pos</label>
-							<input type="number" class="form-control form-control-solid mb-2" name="postal_code" value="{{old('postal_code')}}">
+							<input type="number" class="form-control form-control-solid mb-2" name="postal_code" value="{{old('postal_code') ?? $data->postal_code}}">
 							@error('postal_code')
 								<span>{{$message}}</span>
 							@enderror
@@ -118,28 +118,28 @@
 						</div>
 						<div class="col-6">
 							<label>Harga Satuan</label>
-							<input type="number" class="form-control form-control-solid mb-2" id="up" name="unit_price" value="{{old('unit_price') ?? $data->unit_price}}">
+							<input type="number" class="form-control form-control-solid mb-2 hitung" id="up" name="unit_price" value="{{old('unit_price') ?? $data->unit_price}}">
 							@error('unit_price')
 								<span>{{$message}}</span>
 							@enderror
 						</div>
 						<div class="col-6">
 							<label>Jumlah Barang</label>
-							<input type="number" class="form-control form-control-solid mb-2" id="am" name="amount" value="{{old('amount') ?? $data->amount}}">
+							<input type="number" class="form-control form-control-solid mb-2 hitung" id="am" name="amount" value="{{old('amount') ?? $data->amount}}">
 							@error('amount')
 								<span>{{$message}}</span>
 							@enderror
 						</div>
 						<div class="col-6">
 							<label>Harga Total</label>
-							<input type="number" class="form-control form-control-solid mb-2" id="total" name="total" value="{{old('total') ?? $data->total}}" readonly>
+							<input type="number" step="any" class="form-control form-control-solid mb-2" id="total" name="total" value="{{old('total') ?? $data->total}}" readonly>
 							@error('total')
 								<span>{{$message}}</span>
 							@enderror
 						</div>
 						<div class="col-6">
 							<label>Diskon</label>
-							<input type="number" class="form-control form-control-solid mb-2" id="ds" name="discount" value="{{old('discount') ?? $data->discount}}">
+							<input type="number" class="form-control form-control-solid mb-2 hitung" id="ds" name="discount" value="{{old('discount') ?? $data->discount}}">
 							@error('discount')
 								<span>{{$message}}</span>
 							@enderror
@@ -151,14 +151,14 @@
 					<div class="row mb-2">
 						<div class="col-6">
 							<label for="">DPP</label>
-							<input type="number" class="form-control form-control-solid mb-2" id="dpp" name="dpp" value="{{old('dpp') ?? $data->dpp}}">
+							<input type="number" step="any" class="form-control form-control-solid mb-2" id="dpp" name="dpp" value="{{old('dpp') ?? $data->dpp}}">
 							@error('dpp')
 								<span>{{$message}}</span>
 							@enderror
 						</div>
 						<div class="col-6">
 							<label for="">PPN</label>
-							<select name="ppn" id="ppn" class="form-control form-control-solid mb-2">
+							<select name="ppn" id="ppn" class="form-control form-control-solid mb-2 hitung">
 								<option value="11" @if (old('ppn') ?? $data->ppn == '11') selected @endif>11%</option>
 								<option value="10" @if (old('ppn') ?? $data->ppn == '10') selected @endif>10%</option>
 							</select>

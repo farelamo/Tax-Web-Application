@@ -17,7 +17,7 @@
         var ds      = $("#ds").val();
         var ppn     = $("#ppn").val();
         var fix_tot = tot - (tot * (ds/100));
-        var dpp     = fix_tot + (fix_tot * ppn / 100);
+        var dpp     = Number(fix_tot + (fix_tot * ppn / 100)).toFixed(2);
 
         $("#dpp").val(dpp);
     }
